@@ -3,7 +3,7 @@
 // --------------------------------------------------
 
 import { useState, useRef, useCallback } from 'react';
-import ReactFlow, { Controls, Background, MiniMap } from 'reactflow';
+import ReactFlow, { Background } from 'reactflow';
 import { useStore } from './Store/store';
 import { shallow } from 'zustand/shallow';
 import { InputNode } from './nodes/inputNode';
@@ -13,7 +13,6 @@ import { TextNode } from './nodes/textNode';
 
 import 'reactflow/dist/style.css';
 
-const gridSize = 20;
 const proOptions = { hideAttribution: true };
 const nodeTypes = {
   customInput: InputNode,
@@ -89,27 +88,33 @@ export const PipelineUI = () => {
     }, []);
 
     return (
-        <>
-        <div ref={reactFlowWrapper} style={{width: '100wv', height: '70vh'}}>
-            <ReactFlow
-                nodes={nodes}
-                edges={edges}
-                onNodesChange={onNodesChange}
-                onEdgesChange={onEdgesChange}
-                onConnect={onConnect}
-                onDrop={onDrop}
-                onDragOver={onDragOver}
-                onInit={setReactFlowInstance}
-                nodeTypes={nodeTypes}
-                proOptions={proOptions}
-                snapGrid={[gridSize, gridSize]}
-                connectionLineType='smoothstep'
-            >
-                <Background color="#aaa" gap={gridSize} />
-                <Controls />
-                <MiniMap />
-            </ReactFlow>
-        </div>
-        </>
+      <>
+      <div ref={reactFlowWrapper} className="w-full h-[90vh]">
+        <ReactFlow
+          nodes={nodes}
+          edges={edges}
+          onNodesChange={onNodesChange}
+          onEdgesChange={onEdgesChange}
+          onConnect={onConnect}
+          onDrop={onDrop}
+          onDragOver={onDragOver}
+          onInit={setReactFlowInstance}
+          nodeTypes={nodeTypes}
+          proOptions={proOptions}
+          snapGrid={[30, 30]}
+          connectionLineType='smoothstep'
+          zoomOnScroll={false}
+          zoomOnPinch={false}
+          minZoom={1}
+          maxZoom={1}
+          defaultEdgeOptions={{
+            style: { stroke: '#000', strokeWidth: 1.5 },
+            type: 'smoothstep',
+          }}
+        >
+          <Background variant="dots" color="black" gap={30} size={1.5}/>
+        </ReactFlow>
+      </div>
+      </>
     )
 }

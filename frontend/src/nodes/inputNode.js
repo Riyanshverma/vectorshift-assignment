@@ -41,6 +41,7 @@ export const InputNode = ({ id, data }) => {
         type="source"
         position={Position.Right}
         id={`${id}-value`}
+        className="!bg-black !border-2 !border-gray-400 !w-3 !h-3 !rounded-full"
       />
     </div>
   );
