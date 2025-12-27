@@ -28,7 +28,6 @@ export const LLMNode = ({ id }) => {
           className: "!right-[-6px]"
         },
       ]}
-      className="w-[220px]"
     />
   );
 };

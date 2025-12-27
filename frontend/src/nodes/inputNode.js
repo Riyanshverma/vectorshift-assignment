@@ -19,24 +19,25 @@ export const InputNode = ({ id, data }) => {
           className: "!right-[-6px]"
         },
       ]}
-      className="w-[220px]"
     >
       <label className="flex items-center justify-between">
-        <span className="text-xs font-medium text-gray-700">Name</span>
+        {/* <span className="text-sm font-medium text-white">Name</span> */}
         <input
           type="text"
-          value={currName}
+          // value={currName}
           onChange={(e) => setCurrName(e.target.value)}
-          className="nodrag w-[120px] rounded-md border border-black bg-white px-2 py-1 text-xs focus:outline-none focus:ring-2 focus:ring-black/20"
+          className="nodrag w-full rounded-md border border-white/30 bg-white/20 px-2 py-1 text-sm text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-[#a259f7]/40"
+          placeholder="Name" // Added this and changed w-[120px] to w-full
         />
       </label>
 
       <label className="flex items-center justify-between">
-        <span className="text-xs font-medium text-gray-700">Type</span>
+        {/* <span className="text-sm font-medium text-white">Type</span> */}
         <select
-          value={inputType}
+          // value={inputType}
           onChange={(e) => setInputType(e.target.value)}
-          className="nodrag w-[120px] rounded-md border border-black bg-white px-2 py-1 text-xs focus:outline-none focus:ring-2 focus:ring-black/20"
+          className="nodrag w-full rounded-md border border-white/30 bg-white/20 px-2 py-1 text-sm text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-[#a259f7]/40"
+          placeholder="Type" // Added this and changed w-[120px] to w-full
         >
           <option value="Text">Text</option>
           <option value="File">File</option>
