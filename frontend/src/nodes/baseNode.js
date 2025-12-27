@@ -16,6 +16,7 @@ export const BaseNode = ({ title, description, handles = [], className, children
       position={h.position}
       id={h.id}
       className={cx("!w-3 !h-3 !rounded-full !bg-gradient-to-br !from-[#a259f7] !to-[#f357a8] !border-2 !border-white", h.className)}
+      style={h.style}
     />
   );
 
