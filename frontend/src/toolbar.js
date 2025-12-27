@@ -1,11 +1,22 @@
 import { DraggableNode } from './draggableNode';
+import { useStore } from './Store/store';
 
 export const PipelineToolbar = () => {
+    const { nodes, edges } = useStore(state => ({ nodes: state.nodes, edges: state.edges }));
+
     const handleSubmit = async () => {
         try {
-            alert("Balle")
+            const params = new URLSearchParams({
+                nodes: JSON.stringify(nodes),
+                edges: JSON.stringify(edges),
+            });
+            const response = await fetch(`http://127.0.0.1:8000/pipelines/parse?${params.toString()}`);
+            const data = await response.json();
+            alert(
+                `Nodes: ${data.num_nodes}\nEdges: ${data.num_edges}\nIs DAG: ${data.is_dag ? "Yes" : "No"}`
+            );
         } catch (error) {
-
+            alert("Error submitting pipeline: " + error);
         }
     }
     return (
