@@ -20,7 +20,7 @@ export const BaseNode = ({ title, description, handles = [], className, children
   );
 
   return (
-    <div className={cx("relative w-[220px] min-h-[80px] rounded-xl border border-white/30 bg-gradient-to-br from-[#7b2ff2]/80 to-[#f357a8]/80 backdrop-blur-md shadow-xl", className)}>
+    <div className={cx("relative w-[240px] min-h-[80px] rounded-xl border border-white/30 bg-gradient-to-br from-[#7b2ff2]/80 to-[#f357a8]/80 backdrop-blur-md shadow-xl", className)}>
       {beforeHandles.map(renderHandle)}
 
       <div className="flex flex-col">

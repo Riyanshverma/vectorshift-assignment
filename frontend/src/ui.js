@@ -6,10 +6,17 @@ import { useState, useRef, useCallback } from 'react';
 import ReactFlow, { Background } from 'reactflow';
 import { useStore } from './Store/store';
 import { shallow } from 'zustand/shallow';
-import { InputNode } from './nodes/inputNode';
-import { LLMNode } from './nodes/llmNode';
-import { OutputNode } from './nodes/outputNode';
-import { TextNode } from './nodes/textNode';
+
+import { InputNode } from './Nodes/Default-Nodes/inputNode';
+import { LLMNode } from './Nodes/Default-Nodes/llmNode';
+import { OutputNode } from './Nodes/Default-Nodes/outputNode';
+import { TextNode } from './Nodes/Default-Nodes/textNode';
+
+import { MathNode } from "./Nodes/Custom-Nodes/mathNode";
+import { MergeNode } from "./Nodes/Custom-Nodes/mergeNode";
+import { DelayNode } from "./Nodes/Custom-Nodes/delayNode";
+import { HTTPNode } from "./Nodes/Custom-Nodes/httpNode";
+import { SwitchNode } from "./Nodes/Custom-Nodes/switchNode";
 
 import 'reactflow/dist/style.css';
 
@@ -19,6 +26,11 @@ const nodeTypes = {
   llm: LLMNode,
   customOutput: OutputNode,
   text: TextNode,
+  math: MathNode,
+  merge: MergeNode,
+  delay: DelayNode,
+  http: HTTPNode,
+  switch: SwitchNode,
 };
 
 const selector = (state) => ({

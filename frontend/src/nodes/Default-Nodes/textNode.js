@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Position } from "reactflow";
-import { BaseNode } from "./baseNode";
+import { BaseNode } from "../baseNode";
 
 export const TextNode = ({ id, data }) => {
   const [currText, setCurrText] = useState(data?.text || "{{input}}");
@@ -15,7 +15,7 @@ export const TextNode = ({ id, data }) => {
           type: "source",
           position: Position.Right,
           id: `${id}-output`,
-          className: "!left-[-6px]"
+          className: "!right-[-6px]"
         },
       ]}
       className="w-[240px]"
@@ -27,7 +27,7 @@ export const TextNode = ({ id, data }) => {
           // value={currText}
           onChange={(e) => setCurrText(e.target.value)}
           className="nodrag w-full rounded-md border border-white/30 bg-white/20 px-2 py-1 text-sm text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-[#a259f7]/40"
-          placeholder="Text" // Added this and changed w-[120px] to w-full
+          placeholder="Text"
         />
       </label>
     </BaseNode>
